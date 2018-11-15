@@ -13,6 +13,17 @@ public abstract class Persona {
         this.DNI = DNI;
     }
 
+    // METHODS
+
+    @Override
+    public String toString() {
+        return "Nom = " + nom + System.lineSeparator()  +
+                "Cognoms ='" + cognom1 + " " + cognom2 + System.lineSeparator() +
+                "DNI =" + DNI + ".";
+    }
+
+    // GETTERS & SETTERS
+
     public String getNom() {
         return nom;
     }
@@ -44,12 +55,4 @@ public abstract class Persona {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
-
-    @Override
-    public String toString() {
-        return "Nom = " + nom + System.lineSeparator()  +
-                "Cognoms ='" + cognom1 + " " + cognom2 + System.lineSeparator() +
-                "DNI =" + DNI + ".";
-    }
-
 }

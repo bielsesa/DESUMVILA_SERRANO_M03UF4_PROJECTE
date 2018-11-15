@@ -3,11 +3,13 @@ import java.util.GregorianCalendar;
 
 public class Usuari extends Persona {
     private int numUsuari;
+    private double quotaTotal = 0;
     private GregorianCalendar dataAlta;
     private GregorianCalendar dataBaixa;
     private ArrayList<Servei> llistaServeisU;
 
     // CONSTRUCTORS
+
     public Usuari(String nom, String cognom1, String cognom2, String DNI, int numUsuari) {
         super(nom, cognom1, cognom2, DNI);
         this.numUsuari = numUsuari;
@@ -16,7 +18,26 @@ public class Usuari extends Persona {
         llistaServeisU = new ArrayList<>(); // Es crea la llista de serveis que tindra l'usuari, però s'afegiran mes tard.
     }
 
+    // METHODS
+
+    @Override
+    public String toString() {
+        return "Informació usuari num." + numUsuari + ":" +
+                super.toString();
+    }
+
+    public void afegirServeiU (Servei s) {
+        llistaServeisU.add(s);
+    }
+
+    private void obtenirCuota () {
+        for (int i = 0; i < llistaServeisU.size(); i++) {
+            quotaTotal += (llistaServeisU.get(i)).getQuotaServei();
+        }
+    }
+
     // GETTERS & SETTERS
+
     public int getNumUsuari() {
         return numUsuari;
     }
@@ -41,14 +62,7 @@ public class Usuari extends Persona {
         this.dataBaixa = dataBaixa;
     }
 
-    // METHODS
-    @Override
-    public String toString() {
-        return "Informació usuari num." + numUsuari + ":" +
-                super.toString();
-    }
-
-    public void afegirServeiU (Servei s) {
-        llistaServeisU.add(s);
+    public double getQuotaTotal() {
+        return quotaTotal;
     }
 }

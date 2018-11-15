@@ -8,6 +8,7 @@ public class Monitor extends Persona{
     private ArrayList<Servei> llistaServeisM;
 
     // CONSTRUCTORS
+
     public Monitor(String nom, String cognom1, String cognom2, String DNI, int numMonitor) {
         super(nom, cognom1, cognom2, DNI);
         this.numMonitor = numMonitor;
@@ -15,7 +16,20 @@ public class Monitor extends Persona{
         dataAcomiadament = null; // En principi, quan es crea l'objecte encara no se sap la data d'acomiadament.
     }
 
+    // METHODS
+
+    @Override
+    public String toString() {
+        return "Informació monitor num." + numMonitor + ":" +
+                super.toString();
+    }
+
+    public void afegirServeiM (Servei s) {
+        llistaServeisM.add(s);
+    }
+
     // GETTERS & SETTERS
+
     public int getNumMonitor() {
         return numMonitor;
     }
@@ -40,14 +54,4 @@ public class Monitor extends Persona{
         return llistaServeisM;
     }
 
-    // METHODS
-    @Override
-    public String toString() {
-        return "Informació monitor num." + numMonitor + ":" +
-                super.toString();
-    }
-
-    public void afegirServeiM (Servei s) {
-        llistaServeisM.add(s);
-    }
 }

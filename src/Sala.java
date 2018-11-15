@@ -6,6 +6,14 @@ public abstract class Sala {
     protected int aforamentMaxim;
     protected ArrayList<Material> material;
 
+    // METHODS
+    @Override
+    public String toString() {
+        return "Sala: " + idSala + System.lineSeparator() +
+                "Pis: " + numPis + System.lineSeparator() +
+                "Aforament màxim: " + aforamentMaxim + System.lineSeparator();
+    }
+
     // GETTERS & SETTERS
     public int getNumPis() {
         return numPis;
@@ -29,13 +37,5 @@ public abstract class Sala {
 
     public void setAforamentMaxim(int aforamentMaxim) {
         this.aforamentMaxim = aforamentMaxim;
-    }
-
-    // METHODS
-    @Override
-    public String toString() {
-        return "Sala: " + idSala + System.lineSeparator() +
-                "Pis: " + numPis + System.lineSeparator() +
-                "Aforament màxim: " + aforamentMaxim + System.lineSeparator();
     }
 }
