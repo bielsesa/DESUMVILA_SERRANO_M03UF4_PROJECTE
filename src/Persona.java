@@ -5,12 +5,24 @@ public abstract class Persona {
     protected String cognom1;
     protected String cognom2;
     protected String DNI;
+    private boolean teDNI;
+
+    // CONSTRUCTORS
+
+
+    public Persona(String nom, String cognom1, String cognom2) {
+        this.nom = nom;
+        this.cognom1 = cognom1;
+        this.cognom2 = cognom2;
+        teDNI = false;
+    }
 
     public Persona(String nom, String cognom1, String cognom2, String DNI) {
         this.nom = nom;
         this.cognom1 = cognom1;
         this.cognom2 = cognom2;
         this.DNI = DNI;
+        teDNI = true;
     }
 
     // METHODS
@@ -53,6 +65,10 @@ public abstract class Persona {
     }
 
     public void setDNI(String DNI) {
-        this.DNI = DNI;
+        if (teDNI) {
+            System.out.println("Aquesta persona ja té un DNI, no és possible canviar-lo.");
+        } else {
+            this.DNI = DNI;
+        }
     }
 }
