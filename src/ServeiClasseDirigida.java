@@ -1,7 +1,6 @@
 public class ServeiClasseDirigida extends Servei {
     private Classe nomClasse;
 
-
     // CONSTRUCTORS
 
     public ServeiClasseDirigida(Classe nomClasse) {
@@ -14,7 +13,8 @@ public class ServeiClasseDirigida extends Servei {
 
     @Override
     public void anunciServei() {
-        System.out.println("");
+        System.out.println("Apunta't a les nostres classes dirigides! Tens una gran quantitat d'opcions," +
+                "entre elles " + Classe.Aerobic + ", " + Classe.Ioga + " o " + Classe.Steps + ".");
     }
 
     // GETTERS & SETTERS
@@ -26,5 +26,4 @@ public class ServeiClasseDirigida extends Servei {
     public void setNomClasse(Classe nomClasse) {
         this.nomClasse = nomClasse;
     }
-
 }
