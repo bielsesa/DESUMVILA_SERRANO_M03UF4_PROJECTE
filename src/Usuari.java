@@ -7,6 +7,9 @@ public class Usuari extends Persona {
     private GregorianCalendar dataAlta;
     private GregorianCalendar dataBaixa;
     private ArrayList<Servei> llistaServeisU;
+    private boolean alta; // Això ens indicarà si l'usuari està donat o no de alta.
+    // Ho utilitzem perquè sempre guardarem les dades dels usuaris creats, de manera que si un usuari es dóna de baixa
+    // però després vol tornar, ja tindrem les seves dades.
 
     // CONSTRUCTORS
 
@@ -16,6 +19,7 @@ public class Usuari extends Persona {
         dataAlta = new GregorianCalendar(); // Crea la data d'alta amb la data en la que s'instancia l'objecte
         dataBaixa = null; // Quan es crea l'usuari encara no sabem la data exacta en la que es donara de baixa.
         llistaServeisU = new ArrayList<>(); // Es crea la llista de serveis que tindra l'usuari, però s'afegiran mes tard.
+        alta = true; // En principi, quan es crea un usuari es perquè es dóna de alta al gimnàs.
     }
 
     // METHODS
@@ -27,6 +31,7 @@ public class Usuari extends Persona {
     }
 
     public void afegirServeiU (Servei s) {
+
         llistaServeisU.add(s);
     }
 
@@ -34,6 +39,10 @@ public class Usuari extends Persona {
         for (int i = 0; i < llistaServeisU.size(); i++) {
             quotaTotal += (llistaServeisU.get(i)).getQuotaServei();
         }
+    }
+
+    public void donarAltaoBaixa (boolean aob) {
+        alta = aob;
     }
 
     // GETTERS & SETTERS
